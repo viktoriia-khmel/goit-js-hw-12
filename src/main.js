@@ -29,6 +29,7 @@ loadMoreBtn.addEventListener('click', handleClick);
 function handleSubmit(event) {
   event.preventDefault();
   gallery.innerHTML = '';
+  loadMoreBtn.classList.add('visually-hidden');
   loader.classList.remove('visually-hidden');
 
   inputValue = input.value.trim();
@@ -78,6 +79,8 @@ async function handleClick(event) {
   const newPage = await searchImages(inputValue, page);
 
   renderImages(newPage);
+
+  loader.classList.add('visually-hidden');
 
   const firstCard = document.querySelector('.gallery li');
   const cardHeight = firstCard.getBoundingClientRect().height;

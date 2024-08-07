@@ -42,8 +42,6 @@ export function onFetchError(error) {
     position: 'topRight',
     messageColor: 'white',
     backgroundColor: 'red',
-    message: 'Ooops, something went wrong!',
+    message: `${error}`,
   });
 }
-
-
