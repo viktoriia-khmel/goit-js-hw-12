@@ -4,6 +4,8 @@ import iziToast from 'izitoast';
 
 import 'izitoast/dist/css/iziToast.min.css';
 
+const loader = document.querySelector('.loader');
+
 const API_KEY = '45157034-b6e4e263cfc131778ce7a37cc';
 const URL = 'https://pixabay.com/api/';
 
@@ -29,5 +31,6 @@ export async function searchImages(query, page) {
       backgroundColor: 'red',
       message: `${error}`,
     });
+    loader.classList.add('visually-hidden');
   }
 }

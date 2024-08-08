@@ -80,14 +80,14 @@ async function handleClick(event) {
 
   renderImages(newPage);
 
-  loader.classList.add('visually-hidden');
-
   const firstCard = document.querySelector('.gallery li');
   const cardHeight = firstCard.getBoundingClientRect().height;
   window.scrollBy({
     top: cardHeight * 2,
     behavior: 'smooth',
   });
+
+  loader.classList.add('visually-hidden');
 
   if (page >= totalPages) {
     loadMoreBtn.classList.add('visually-hidden');

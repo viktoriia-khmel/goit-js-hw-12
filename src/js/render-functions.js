@@ -6,6 +6,8 @@ import 'izitoast/dist/css/iziToast.min.css';
 
 const gallery = document.querySelector('.gallery');
 
+const loader = document.querySelector('.loader');
+
 export function renderImages(images) {
   let img = images.hits
     .map(
