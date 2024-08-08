@@ -46,4 +46,5 @@ export function onFetchError(error) {
     backgroundColor: 'red',
     message: `${error}`,
   });
+  loader.classList.add('visually-hidden');
 }
