@@ -76,6 +76,7 @@ function handleSubmit(event) {
 async function handleClick(event) {
   page += 1;
   loader.classList.remove('visually-hidden');
+  loadMoreBtn.classList.add('visually-hidden');
   const newPage = await searchImages(inputValue, page);
 
   renderImages(newPage);
@@ -86,11 +87,14 @@ async function handleClick(event) {
     top: cardHeight * 2,
     behavior: 'smooth',
   });
-
-  loader.classList.add('visually-hidden');
+  if (page < totalPages) {
+    loadMoreBtn.classList.remove('visually-hidden');
+    loader.classList.add('visually-hidden');
+  }
 
   if (page >= totalPages) {
     loadMoreBtn.classList.add('visually-hidden');
+    loader.classList.add('visually-hidden');
     return iziToast.error({
       position: 'topRight',
       messageColor: 'black',
